@@ -309,7 +309,7 @@
     <div class="container">
         <div class="header">
             <div class="school-name">
-                <i class="fas fa-school"></i> E.E. LYDIA KITZ MOREIRA
+                <i class="fas fa-school"></i> E.E. LYDIA KUTZ MOREIRA
             </div>
             
             <div class="student-info">
@@ -506,9 +506,7 @@
                 </div>
             </div>
             
-            <!-- Questões 6 a 10 (resumidas para manter o código dentro dos limites) -->
-            <!-- O código completo teria 10 questões -->
-            
+            <!-- Questões 6 a 10 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">6</div>
@@ -679,7 +677,7 @@
         </div>
         
         <div class="footer">
-            &copy; 2023 E.E. Lydia Kitz Moreira | Atividade de Biologia
+            &copy; 2023 E.E. Lydia Kutz Moreira | Atividade de Biologia
         </div>
     </div>
 
@@ -769,10 +767,11 @@
             });
         });
         
-        // Enviar respostas
-        document.getElementById('submit-btn').addEventListener('click', function() {
+        // Enviar respostas para o Google Sheets
+        document.getElementById('submit-btn').addEventListener('click', async function() {
             const studentName = document.getElementById('student-name').value;
             const studentNumber = document.getElementById('student-number').value;
+            const submitBtn = this;
             
             if (!studentName) {
                 alert('Por favor, selecione seu nome na lista.');
@@ -814,31 +813,50 @@
                 timestamp: new Date().toISOString()
             };
             
-            // Simular envio para o Google Sheets
-            console.log('Dados para enviar ao Google Sheets:', dataToSend);
+            // Mostrar carregamento
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
+            submitBtn.disabled = true;
             
-            // Em um ambiente real, aqui seria a chamada para o Google Apps Script
-            // fetch('https://script.google.com/macros/s/.../exec', {
-            //   method: 'POST',
-            //   body: JSON.stringify(dataToSend)
-            // })
-            
-            // Mostrar resultado
-            const resultDiv = document.getElementById('result');
-            resultDiv.textContent = `Obrigado, ${studentName}! Suas respostas foram enviadas. Você acertou ${score} de 10 questões.`;
-            resultDiv.className = 'result success';
-            resultDiv.style.display = 'block';
-            
-            // Rolagem suave para o resultado
-            resultDiv.scrollIntoView({ behavior: 'smooth' });
-            
-            // Feedback visual
-            this.innerHTML = '<i class="fas fa-check"></i> RESPOSTAS ENVIADAS!';
-            this.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
-            this.disabled = true;
+            try {
+                // URL do Google Apps Script (substitua com a sua URL)
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbxm5MR2JkQjjk2SmTgUH8uS2B6FPXgHf6HKG8W8Ro0W6dlr2XtBKiSnfj6mxIgTAaE/exec';
+                
+                // Enviar dados para o Google Sheets
+                const response = await fetch(scriptURL, {
+                    method: 'POST',
+                    body: JSON.stringify(dataToSend),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Mostrar resultado
+                    const resultDiv = document.getElementById('result');
+                    resultDiv.textContent = `Obrigado, ${studentName}! Suas respostas foram enviadas. Você acertou ${score} de 10 questões.`;
+                    resultDiv.className = 'result success';
+                    resultDiv.style.display = 'block';
+                    
+                    // Rolagem suave para o resultado
+                    resultDiv.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Feedback visual
+                    submitBtn.innerHTML = '<i class="fas fa-check"></i> RESPOSTAS ENVIADAS!';
+                    submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
+                } else {
+                    throw new Error(result.message || 'Erro ao enviar respostas');
+                }
+            } catch (error) {
+                // Habilitar o botão novamente
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR RESPOSTAS';
+                submitBtn.disabled = false;
+                
+                alert(`Erro ao enviar respostas: ${error.message}`);
+                console.error('Erro:', error);
+            }
         });
     </script>
 </body>
 </html>
-
-		
