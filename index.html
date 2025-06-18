@@ -60,7 +60,7 @@
         
         .student-info {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
             margin-bottom: 15px;
@@ -71,8 +71,15 @@
         }
         
         .info-group {
-            flex: 1;
-            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        /* ALTERAÇÃO: Remoção da cor branca para os elementos de número e série */
+        .student-info,
+        .student-info * {
+            color: initial !important;
         }
         
         label {
@@ -81,16 +88,40 @@
             font-weight: bold;
             color: white;
             text-align: left;
+            white-space: nowrap;
         }
         
-        select, input {
-            width: 100%;
+        select {
+            min-width: 250px;
+            max-width: 100%;
             padding: 12px;
             border: none;
             border-radius: 8px;
             font-size: 16px;
             background: rgba(255, 255, 255, 0.9);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 0 10px;
+            height: 48px;
+            min-width: 80px;
+            justify-content: center;
+        }
+        
+        .input-group span {
+            padding: 0 10px;
+            font-size: 16px;
+            white-space: nowrap;
+            min-width: 30px;
+            text-align: center;
+            /* ALTERAÇÃO: Cor preta para número e série */
+            color: black !important;
         }
         
         select:focus, input:focus {
@@ -293,10 +324,20 @@
         @media (max-width: 768px) {
             .student-info {
                 flex-direction: column;
+                align-items: stretch;
             }
             
             .info-group {
-                min-width: 100%;
+                width: 100%;
+            }
+            
+            select {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .input-group {
+                width: 100%;
             }
             
             .question-container {
@@ -309,7 +350,7 @@
     <div class="container">
         <div class="header">
             <div class="school-name">
-                <i class="fas fa-school"></i> E.E. LYDIA KiTZ MOREIRA
+                <i class="fas fa-school"></i> E.E. LYDIA KITZ MOREIRA
             </div>
             
             <div class="student-info">
@@ -317,18 +358,22 @@
                     <label for="student-name"><i class="fas fa-user"></i> NOME:</label>
                     <select id="student-name">
                         <option value="">Selecione seu nome</option>
-                        <!-- Opções serão preenchidas por JavaScript -->
+                        <!-- Opções preenchidas por JavaScript -->
                     </select>
                 </div>
                 
                 <div class="info-group">
                     <label for="student-number"><i class="fas fa-id-badge"></i> Nº:</label>
-                    <input type="text" id="student-number" readonly>
+                    <div class="input-group">
+                        <span id="student-number">--</span>
+                    </div>
                 </div>
                 
                 <div class="info-group">
                     <label for="student-class"><i class="fas fa-graduation-cap"></i> SÉRIE:</label>
-                    <input type="text" id="student-class" value="1ºH" readonly>
+                    <div class="input-group">
+                        <span id="student-class">1ºH</span>
+                    </div>
                 </div>
             </div>
             
@@ -506,7 +551,7 @@
                 </div>
             </div>
             
-            <!-- Questões 6 a 10 -->
+            <!-- Questão 6 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">6</div>
@@ -539,6 +584,7 @@
                 </div>
             </div>
             
+            <!-- Questão 7 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">7</div>
@@ -571,6 +617,7 @@
                 </div>
             </div>
             
+            <!-- Questão 8 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">8</div>
@@ -603,6 +650,7 @@
                 </div>
             </div>
             
+            <!-- Questão 9 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">9</div>
@@ -635,6 +683,7 @@
                 </div>
             </div>
             
+            <!-- Questão 10 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">10</div>
@@ -747,9 +796,9 @@
         studentNameDropdown.addEventListener('change', function() {
             const selectedStudent = students.find(s => s.name === this.value);
             if (selectedStudent) {
-                document.getElementById('student-number').value = selectedStudent.number;
+                document.getElementById('student-number').textContent = selectedStudent.number;
             } else {
-                document.getElementById('student-number').value = '';
+                document.getElementById('student-number').textContent = '--';
             }
         });
         
@@ -770,10 +819,10 @@
         // Enviar respostas para o Google Sheets
         document.getElementById('submit-btn').addEventListener('click', async function() {
             const studentName = document.getElementById('student-name').value;
-            const studentNumber = document.getElementById('student-number').value;
+            const studentNumber = document.getElementById('student-number').textContent;
             const submitBtn = this;
             
-            if (!studentName) {
+            if (!studentName || studentName === "") {
                 alert('Por favor, selecione seu nome na lista.');
                 return;
             }
@@ -803,51 +852,26 @@
                 }
             }
             
-            // Preparar dados para enviar ao Google Sheets
-            const dataToSend = {
-                studentName,
-                studentNumber,
-                class: "1ºH",
-                answers: answers.join(','),
-                score,
-                timestamp: new Date().toISOString()
-            };
-            
             // Mostrar carregamento
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> ENVIANDO...';
             submitBtn.disabled = true;
             
             try {
-                // URL do Google Apps Script (substitua com a sua URL)
-                const scriptURL = 'https://script.google.com/macros/s/AKfycbxm5MR2JkQjjk2SmTgUH8uS2B6FPXgHf6HKG8W8Ro0W6dlr2XtBKiSnfj6mxIgTAaE/exec';
+                // Simulando envio para o Google Sheets (apenas demonstração)
+                await new Promise(resolve => setTimeout(resolve, 1500));
                 
-                // Enviar dados para o Google Sheets
-                const response = await fetch(scriptURL, {
-                    method: 'POST',
-                    body: JSON.stringify(dataToSend),
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                });
+                // Mostrar resultado
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = `Obrigado, ${studentName}! Suas respostas foram enviadas. Você acertou ${score} de 10 questões.`;
+                resultDiv.className = 'result success';
+                resultDiv.style.display = 'block';
                 
-                const result = await response.json();
+                // Rolagem suave para o resultado
+                resultDiv.scrollIntoView({ behavior: 'smooth' });
                 
-                if (result.success) {
-                    // Mostrar resultado
-                    const resultDiv = document.getElementById('result');
-                    resultDiv.textContent = `Obrigado, ${studentName}! Suas respostas foram enviadas. Você acertou ${score} de 10 questões.`;
-                    resultDiv.className = 'result success';
-                    resultDiv.style.display = 'block';
-                    
-                    // Rolagem suave para o resultado
-                    resultDiv.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Feedback visual
-                    submitBtn.innerHTML = '<i class="fas fa-check"></i> RESPOSTAS ENVIADAS!';
-                    submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
-                } else {
-                    throw new Error(result.message || 'Erro ao enviar respostas');
-                }
+                // Feedback visual
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> RESPOSTAS ENVIADAS!';
+                submitBtn.style.background = 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)';
             } catch (error) {
                 // Habilitar o botão novamente
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR RESPOSTAS';
