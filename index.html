@@ -189,7 +189,7 @@
             align-items: center;
             font-weight: bold;
             margin-right: 15px;
-            flex-shrink: 0;
+            flex-shrink: 极;
         }
         
         .lesson-tag {
@@ -274,7 +274,7 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5极 15px rgba(0, 0, 0, 0.2);
         }
         
         .submit-btn:hover {
@@ -404,7 +404,7 @@
                 <p>Esta atividade contém 10 questões sobre os temas estudados. Leia cada questão com atenção e selecione a alternativa correta. Após responder todas as questões, clique no botão "ENVIAR RESPOSTAS" para finalizar. Suas respostas serão automaticamente enviadas para registro na escola.</p>
             </div>
             
-            <!-- Questão 1 - Reformulada com mais análise -->
+            <!-- Questão 1 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">1</div>
@@ -427,7 +427,7 @@
                         <label for="q1c">C) Florestas sempre se beneficiam do CO₂, enquanto savanas são sempre prejudicadas</label>
                     </div>
                     <div class="option">
-                        <input type="radio" name="q1" id="q1d" value="D">
+                        <input type="radio" name="q1" id="q1d极" value="D">
                         <label for="q1d">D) O efeito fertilizante é temporário, neutralizado após alguns anos em todos ecossistemas</label>
                     </div>
                     <div class="option">
@@ -437,7 +437,7 @@
                 </div>
             </div>
             
-            <!-- Questão 2 - Reformulada com mais análise -->
+            <!-- Questão 2 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">2</div>
@@ -470,7 +470,7 @@
                 </div>
             </div>
             
-            <!-- Questão 3 - Reformulada com mais análise -->
+            <!-- Questão 3 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">3</div>
@@ -503,7 +503,7 @@
                 </div>
             </div>
             
-            <!-- Questão 4 - Reformulada com mais análise -->
+            <!-- Questão 4 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">4</div>
@@ -536,7 +536,7 @@
                 </div>
             </div>
             
-            <!-- Questão 5 - Reformulada com mais análise -->
+            <!-- Questão 5 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">5</div>
@@ -569,7 +569,7 @@
                 </div>
             </div>
             
-            <!-- Questão 6 - Reformulada com mais análise -->
+            <!-- Questão 6 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">6</div>
@@ -602,7 +602,7 @@
                 </div>
             </div>
             
-            <!-- Questão 7 - Reformulada com mais análise -->
+            <!-- Questão 7 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">7</div>
@@ -635,7 +635,7 @@
                 </div>
             </div>
             
-            <!-- Questão 8 - Reformulada com mais análise -->
+            <!-- Questão 8 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">8</div>
@@ -668,7 +668,7 @@
                 </div>
             </div>
             
-            <!-- Questão 9 - Reformulada com mais análise -->
+            <!-- Questão 9 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">9</div>
@@ -701,7 +701,7 @@
                 </div>
             </div>
             
-            <!-- Questão 10 - Reformulada com mais análise -->
+            <!-- Questão 10 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">10</div>
@@ -769,7 +769,7 @@
             { name: "ANA LÍVIA BRAGA DOS SANTOS", number: "5", class: "1ºH" },
             { name: "ARTHUR CASTRO SILVA", number: "7", class: "1ºH" },
             { name: "DANIELLE OLIVEIRA DA SILVA NUNES", number: "11", class: "1ºH" },
-            { name: "ELOYSA ANDRADE OLIVEIRA SILVA", number: "14", class: "1ºH" },
+            { name: "ELOYSA ANDRADE OLIVEIRA SILVA", number: "14", class: "1极H" },
             { name: "FELIPE MARCONDES SILVA", number: "18", class: "1ºH" },
             { name: "GEOVANA FERREIRA DA SILVA", number: "19", class: "1ºH" },
             { name: "GEOVANNA GABRIELA PIERRE SILVA", number: "20", class: "1ºH" },
@@ -834,16 +834,19 @@
             });
         });
         
-        // Função para enviar respostas para o Google Sheets (CORRIGIDA)
+        // Função para enviar respostas para o Google Sheets (VERSÃO FINAL)
         async function enviarParaSheets(dados) {
-            // URL DO SEU WEB APP (ATUALIZE COM SEU URL!)
-            const webAppUrl = 'https://script.google.com/macros/s/AKfycbySXxrjppzyGn-2Z47Zs0KYdYUMMw18oFaOdygFyJQI8n0uhpjmoNQflY52XjJHQ3o/exec';
+            // ATUALIZE COM SEU URL DO WEB APP
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbx1UuLn1eykum2e62ur7xd0T_D-Hg3f3a0IOJx821-OGSM6gz1U_ZluQZ3S-Vtsee4/exec';
             
             try {
-                const response = await fetch(webAppUrl, {
+                // Solução com proxy CORS para contornar restrições de navegador
+                const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                const response = await fetch(proxyUrl + webAppUrl, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
                     },
                     body: JSON.stringify(dados)
                 });
@@ -863,7 +866,8 @@
                 }
             } catch (error) {
                 console.error('Erro na requisição:', error);
-                throw new Error('Não foi possível conectar ao servidor: ' + error.message);
+                throw new Error('Não foi possível conectar ao servidor. ' + 
+                              'Verifique sua conexão com a internet e tente novamente.');
             }
         }
         
@@ -939,17 +943,12 @@
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR RESPOSTAS';
                 submitBtn.disabled = false;
                 
-                // Mensagem de erro amigável
-                const errorMsg = error.message.includes('conectar') ? 
-                    "Verifique sua conexão com a internet e tente novamente" : 
-                    error.message;
-                
-                alert(`Erro ao enviar respostas: ${errorMsg}`);
-                console.error('Erro detalhado:', error);
+                alert(`Erro ao enviar respostas: ${error.message}`);
+                console.error('Erro:', error);
                 
                 // Mostrar mensagem de erro
                 const resultDiv = document.getElementById('result');
-                resultDiv.textContent = `Erro: ${errorMsg}. Por favor, tente novamente.`;
+                resultDiv.textContent = `Erro: ${error.message}. Por favor, tente novamente.`;
                 resultDiv.className = 'result error';
                 resultDiv.style.display = 'block';
                 resultDiv.scrollIntoView({ behavior: 'smooth' });
