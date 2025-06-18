@@ -76,7 +76,6 @@
             align-items: flex-start;
         }
         
-        /* ALTERAÇÃO: Remoção da cor branca para os elementos de número e série */
         .student-info,
         .student-info * {
             color: initial !important;
@@ -120,7 +119,6 @@
             white-space: nowrap;
             min-width: 30px;
             text-align: center;
-            /* ALTERAÇÃO: Cor preta para número e série */
             color: black !important;
         }
         
@@ -386,6 +384,7 @@
                 <p>Esta atividade contém 10 questões sobre os temas estudados. Leia cada questão com atenção e selecione a alternativa correta. Após responder todas as questões, clique no botão "ENVIAR RESPOSTAS" para finalizar. Suas respostas serão automaticamente enviadas para registro na escola.</p>
             </div>
             
+            <!-- Questões 1-10 (mantidas como no código original) -->
             <!-- Questão 1 -->
             <div class="question-container">
                 <div class="question-header">
@@ -419,7 +418,7 @@
                 </div>
             </div>
             
-            <!-- Questão 2 -->
+                        <!-- Questão 2 -->
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">2</div>
@@ -716,6 +715,7 @@
                 </div>
             </div>
             
+            
             <div class="result" id="result"></div>
         </div>
         
@@ -816,10 +816,38 @@
             });
         });
         
+        // Função para enviar respostas para o Google Sheets
+        async function enviarParaSheets(dados) {
+            // URL do seu Web App do Google Apps Script
+            const webAppUrl = 'https://script.google.com/macros/s/AKfycbySmQjotwd427kc6lik-3yG8YtU_UuIQYr58CHSkuj8JNrDeybYFZwlBjfCggjF4X0/exec';
+            
+            try {
+                const response = await fetch(webAppUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(dados)
+                });
+                
+                const resultado = await response.json();
+                
+                if (resultado.success) {
+                    return resultado;
+                } else {
+                    throw new Error(resultado.message || 'Erro ao enviar respostas');
+                }
+            } catch (error) {
+                console.error('Erro:', error);
+                throw error;
+            }
+        }
+        
         // Enviar respostas para o Google Sheets
         document.getElementById('submit-btn').addEventListener('click', async function() {
             const studentName = document.getElementById('student-name').value;
             const studentNumber = document.getElementById('student-number').textContent;
+            const studentClass = document.getElementById('student-class').textContent;
             const submitBtn = this;
             
             if (!studentName || studentName === "") {
@@ -843,10 +871,10 @@
             
             // Calcular pontuação
             let score = 0;
-            let answers = [];
+            let answers = {};
             for (let i = 1; i <= 10; i++) {
                 const selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`).value;
-                answers.push(selectedAnswer);
+                answers[`q${i}`] = selectedAnswer;
                 if (selectedAnswer === correctAnswers[`q${i}`]) {
                     score++;
                 }
@@ -857,8 +885,18 @@
             submitBtn.disabled = true;
             
             try {
-                // Simulando envio para o Google Sheets (apenas demonstração)
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Dados para enviar ao Google Sheets
+                const dados = {
+                    nome: studentName,
+                    numero: studentNumber,
+                    turma: studentClass,
+                    respostas: answers,
+                    nota: score,
+                    data: new Date().toISOString()
+                };
+                
+                // Enviar para o Google Sheets
+                const resultado = await enviarParaSheets(dados);
                 
                 // Mostrar resultado
                 const resultDiv = document.getElementById('result');
@@ -879,6 +917,13 @@
                 
                 alert(`Erro ao enviar respostas: ${error.message}`);
                 console.error('Erro:', error);
+                
+                // Mostrar mensagem de erro
+                const resultDiv = document.getElementById('result');
+                resultDiv.textContent = `Erro: ${error.message}. Por favor, tente novamente.`;
+                resultDiv.className = 'result error';
+                resultDiv.style.display = 'block';
+                resultDiv.scrollIntoView({ behavior: 'smooth' });
             }
         });
     </script>
