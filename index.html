@@ -834,10 +834,10 @@
             });
         });
         
-        // Função para enviar respostas para o Google Sheets
+        // Função para enviar respostas para o Google Sheets (CORRIGIDA)
         async function enviarParaSheets(dados) {
-            // URL do seu Web App do Google Apps Script
-            const webAppUrl = 'https://script.google.com/macros/s/AKfycby3GDaE2BHm7bqn3s0lYDjc-NekSzA4OeM7biPx0bJRa9Stk7ASDvuJ-Dqw2cIpkGU/exec';
+            // URL DO SEU WEB APP (ATUALIZE COM SEU URL!)
+            const webAppUrl = 'https://script.google.com/macros/s/SEU_SCRIPT_ID/exec';
             
             try {
                 const response = await fetch(webAppUrl, {
@@ -848,16 +848,22 @@
                     body: JSON.stringify(dados)
                 });
                 
+                // Verificar resposta HTTP
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`Erro ${response.status}: ${errorText}`);
+                }
+                
                 const resultado = await response.json();
                 
                 if (resultado.success) {
                     return resultado;
                 } else {
-                    throw new Error(resultado.message || 'Erro ao enviar respostas');
+                    throw new Error(resultado.message || 'Erro ao processar resposta');
                 }
             } catch (error) {
-                console.error('Erro:', error);
-                throw error;
+                console.error('Erro na requisição:', error);
+                throw new Error('Não foi possível conectar ao servidor: ' + error.message);
             }
         }
         
@@ -933,12 +939,17 @@
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> ENVIAR RESPOSTAS';
                 submitBtn.disabled = false;
                 
-                alert(`Erro ao enviar respostas: ${error.message}`);
-                console.error('Erro:', error);
+                // Mensagem de erro amigável
+                const errorMsg = error.message.includes('conectar') ? 
+                    "Verifique sua conexão com a internet e tente novamente" : 
+                    error.message;
+                
+                alert(`Erro ao enviar respostas: ${errorMsg}`);
+                console.error('Erro detalhado:', error);
                 
                 // Mostrar mensagem de erro
                 const resultDiv = document.getElementById('result');
-                resultDiv.textContent = `Erro: ${error.message}. Por favor, tente novamente.`;
+                resultDiv.textContent = `Erro: ${errorMsg}. Por favor, tente novamente.`;
                 resultDiv.className = 'result error';
                 resultDiv.style.display = 'block';
                 resultDiv.scrollIntoView({ behavior: 'smooth' });
