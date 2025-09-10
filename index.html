@@ -14,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2980 0%, #26d0ce 100%);
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b3a4b 100%);
             padding: 20px;
             min-height: 100vh;
             display: flex;
@@ -28,12 +28,12 @@
             max-width: 900px;
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             overflow: hidden;
         }
         
         .header {
-            background: linear-gradient(90deg, #0052D4 0%, #4364F7 50%, #6FB1FC 100%);
+            background: linear-gradient(90deg, #0d3b1a 0%, #1e6a3c 50%, #2a9d58 100%);
             padding: 20px;
             text-align: center;
             color: white;
@@ -131,16 +131,16 @@
         }
         
         .instructions {
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             padding: 20px;
             border-radius: 10px;
             margin-bottom: 30px;
-            border-left: 5px solid #4A90E2;
+            border-left: 5px solid #2e7d32;
             box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
         
         .instructions h3 {
-            color: #2c3e50;
+            color: #1b5e20;
             margin-bottom: 10px;
             display: flex;
             align-items: center;
@@ -149,25 +149,26 @@
         
         .instructions p {
             line-height: 1.6;
-            color: #34495e;
+            color: #2e7d32;
         }
         
         .question-container {
             margin-bottom: 30px;
             padding: 25px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), 
-                        -3px -3px 10px rgba(255, 255, 255, 0.7);
+            background: linear-gradient(135deg, #e8f5e9 0%, #bbdefb 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 
+                        0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
-            border-left: 8px solid #4A90E2;
+            border-left: 8px solid #1b5e20;
             transition: transform 0.3s ease;
+            transform-style: preserve-3d;
         }
         
         .question-container:hover {
             transform: translateY(-5px);
-            box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
         
         .question-header {
@@ -175,11 +176,11 @@
             align-items: center;
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 2px dashed #4A90E2;
+            border-bottom: 2px dashed #1b5e20;
         }
         
         .question-number {
-            background: #4A90E2;
+            background: #1b5e20;
             color: white;
             width: 36px;
             height: 36px;
@@ -189,11 +190,11 @@
             align-items: center;
             font-weight: bold;
             margin-right: 15px;
-            flex-shrink: 极;
+            flex-shrink: 0;
         }
         
         .lesson-tag {
-            background: #FF6B6B;
+            background: #0d47a1;
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
@@ -208,7 +209,7 @@
             margin-bottom: 20px;
             font-size: 17px;
             line-height: 1.6;
-            color: #2c3e50;
+            color: #1b5e20;
         }
         
         .options {
@@ -232,8 +233,8 @@
         }
         
         .option.selected {
-            background: rgba(74, 144, 226, 0.15);
-            border: 2px solid #4A90E2;
+            background: rgba(27, 94, 32, 0.15);
+            border: 2px solid #1b5e20;
         }
         
         .option input {
@@ -247,7 +248,7 @@
         .option label {
             font-weight: normal;
             flex: 1;
-            color: #2c3e50;
+            color: #1b5e20;
             cursor: pointer;
             word-wrap: break-word;
             overflow-wrap: break-word;
@@ -257,7 +258,7 @@
         .submit-section {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(90deg, #0052D4 0%, #4364F7 100%);
+            background: linear-gradient(90deg, #0d3b1a 0%, #1e6a3c 100%);
             border-top: 3px solid #FFD700;
         }
         
@@ -267,14 +268,14 @@
             gap: 10px;
             padding: 15px 40px;
             background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #2c3e50;
+            color: #1b5e20;
             border: none;
             border-radius: 50px;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5极 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         .submit-btn:hover {
@@ -312,7 +313,7 @@
         .footer {
             text-align: center;
             padding: 15px;
-            background: #2c3e50;
+            background: #1b3a4b;
             color: white;
             font-size: 14px;
         }
@@ -408,31 +409,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">1</div>
-                    <div class="lesson-tag">Aula 1 - Efeito Estufa</div>
+                    <div class="lesson-tag">Fluxo de Matéria</div>
                 </div>
                 <div class="question">
-                    Em uma floresta tropical, o aumento de CO₂ elevou o crescimento das árvores em 15%, enquanto em uma savana reduziu a biodiversidade de gramíneas. Qual interpretação explica melhor esta relação?
+                    Em um ecossistema, observa-se que a energia diminui a cada nível trófico, enquanto a matéria é reciclada. Qual das alternativas explica corretamente essa diferença?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q1" id="q1a" value="A">
-                        <label for="q1a">A) O CO₂ atua como fertilizante universal, beneficiando igualmente todos ecossistemas</label>
+                        <label for="q1a">A) A energia é dissipada como calor, enquanto a matéria é reaproveitada pelos decompositores</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1b" value="B">
-                        <label for="q1b">B) Os efeitos do CO₂ são mediados por fatores locais como solo e competição entre espécies</label>
+                        <label for="q1b">B) A matéria é transformada em energia, seguindo a equação de Einstein</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1c" value="C">
-                        <label for="q1c">C) Florestas sempre se beneficiam do CO₂, enquanto savanas são sempre prejudicadas</label>
+                        <label for="q1c">C) Os produtores consomem mais matéria do que energia em seus processos</label>
                     </div>
                     <div class="option">
-                        <input type="radio" name="q1" id="q1d极" value="D">
-                        <label for="q1d">D) O efeito fertilizante é temporário, neutralizado após alguns anos em todos ecossistemas</label>
+                        <input type="radio" name="q1" id="q1d" value="D">
+                        <label for="q1d">D) A energia é completamente transferida entre os níveis tróficos, enquanto a matéria é parcialmente perdida</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q1" id="q1e" value="E">
-                        <label for="q1e">E) A biodiversidade é inversamente proporcional à concentração de CO₂</label>
+                        <label for="q1e">E) Os consumidores primários são os únicos responsáveis pela reciclagem da matéria</label>
                     </div>
                 </div>
             </div>
@@ -441,31 +442,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">2</div>
-                    <div class="lesson-tag">Aula 2 - Eventos Climáticos</div>
+                    <div class="lesson-tag">Pirâmides Ecológicas</div>
                 </div>
                 <div class="question">
-                    Após seca seguida por chuvas torrenciais, o arroz teve aumento de produtividade enquanto o feijão sofreu perdas. Qual explicação integra melhor fisiologia vegetal e mudanças climáticas?
+                    Em uma pirâmide de energia, a base é sempre mais larga que o topo. Qual é a principal razão para essa característica?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q2" id="q2a" value="A">
-                        <label for="q2a">A) Culturas de ciclo curto são sempre mais resistentes a variações climáticas</label>
+                        <label for="q2a">A) A energia é completamente transferida entre os níveis tróficos sem perdas</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2b" value="B">
-                        <label for="q2b">B) As respostas dependem de adaptações evolutivas específicas de cada planta</label>
+                        <label for="q2b">B) Há perda de energia na forma de calor a cada transferência entre níveis tróficos</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2c" value="C">
-                        <label for="q2c">C) Fertilizantes químicos compensam completamente os efeitos das mudanças pluviométricas</label>
+                        <label for="q2c">C) Os produtores consomem mais energia do que os consumidores</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2d" value="D">
-                        <label for="q2d">D) O aumento da temperatura é o fator determinante para a produtividade agrícola</label>
+                        <label for="q2d">D) Os decompositores devolvem energia para os produtores</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q2" id="q2e" value="E">
-                        <label for="q2e">E) Culturas geneticamente modificadas têm resistência uniforme a estresse hídrico</label>
+                        <label for="q2e">E) A energia solar é totalmente convertida em matéria orgânica</label>
                     </div>
                 </div>
             </div>
@@ -474,31 +475,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">3</div>
-                    <div class="lesson-tag">Aula 3 - ERRD</div>
+                    <div class="lesson-tag">Cadeias Alimentares</div>
                 </div>
                 <div class="question">
-                    Comunidade costeira implementou: restauração de manguezais, sistema de alerta e educação ambiental, reduzindo danos em 70%. Qual análise explica melhor a eficácia?
+                    Em um ecossistema aquático, foi observada a seguinte relação: fitoplâncton → zooplâncton → pequenos peixes → grandes peixes. Qual das alternativas representa corretamente o nível trófico dos grandes peixes?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q3" id="q3a" value="A">
-                        <label for="q3a">A) Manguezais sozinhos são suficientes para proteção sem outras medidas</label>
+                        <label for="q3a">A) Produtor</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3b" value="B">
-                        <label for="q3b">B) A sinergia entre proteção ambiental, tecnologia e capacitação cria resiliência</label>
+                        <label for="q3b">B) Consumidor primário</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3c" value="C">
-                        <label for="q3c">C) Programas educacionais têm impacto limitado na redução de danos</label>
+                        <label for="q3c">C) Consumidor secundário</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3d" value="D">
-                        <label for="q3d">D) Sistemas de alerta dispensam investimentos em restauração ambiental</label>
+                        <label for="q3d">D) Consumidor terciário</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q3" id="q3e" value="E">
-                        <label for="q3e">E) Conhecimento ancestral dispensa intervenções técnicas modernas</label>
+                        <label for="q3e">E) Decompositor</label>
                     </div>
                 </div>
             </div>
@@ -507,31 +508,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">4</div>
-                    <div class="lesson-tag">Aula 4 - Fontes Renováveis</div>
+                    <div class="lesson-tag">Ciclo do Carbono</div>
                 </div>
                 <div class="question">
-                    Estudo comparativo mostrou: solar tem alto consumo de água, eólica afeta avifauna, hidrelétrica altera ecossistemas. Qual conclusão reflete os desafios?
+                    O aumento da queima de combustíveis fósseis tem impactado significativamente o ciclo do carbono. Qual é a principal consequência desse aumento?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q4" id="q4a" value="A">
-                        <label for="q4a">A) Todas fontes energéticas têm impactos que devem ser avaliados e mitigados</label>
+                        <label for="q4a">A) Diminuição da fotossíntese pelas plantas</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4b" value="B">
-                        <label for="q4b">B) Energias renováveis são solução perfeita com impactos insignificantes</label>
+                        <label for="q4b">B) Aumento da concentração de CO₂ na atmosfera e intensificação do efeito estufa</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4c" value="C">
-                        <label for="q4c">C) Impactos são só na implantação, benefícios se estendem por décadas</label>
+                        <label for="q4c">C) Redução da respiração celular nos seres vivos</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4d" value="D">
-                        <label for="q4d">D) Hidrelétrica é a única realmente sustentável sem consequências</label>
+                        <label for="q4d">D) Aumento da camada de ozônio</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q4" id="q4e" value="E">
-                        <label for="q4e">E) Fusão nuclear elimina problemas de fontes fósseis e renováveis</label>
+                        <label for="q4e">E) Diminuição da temperatura global</label>
                     </div>
                 </div>
             </div>
@@ -540,31 +541,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">5</div>
-                    <div class="lesson-tag">Aula 5 - Fontes Não Renováveis</div>
+                    <div class="lesson-tag">Ciclo do Nitrogênio</div>
                 </div>
                 <div class="question">
-                    Exploração de carvão aumentou doenças respiratórias, mas gerou emprego. Qual abordagem equilibra saúde e desenvolvimento?
+                    As leguminosas, como o feijão e a soja, possuem nódulos em suas raízes que abrigam bactérias do gênero Rhizobium. Qual é a importância ecológica dessa associação?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q5" id="q5a" value="A">
-                        <label for="q5a">A) Controle de emissões com diversificação econômica e transição justa</label>
+                        <label for="q5a">A) As bactérias realizam a fixação do nitrogênio atmosférico, tornando-o disponível para as plantas</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5b" value="B">
-                        <label for="q5b">B) Relocalização compulsória mantendo atividade econômica</label>
+                        <label for="q5b">B) As bactérias protegem as plantas contra herbívoros</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5c" value="C">
-                        <label for="q5c">C) Manutenção com compensações financeiras para tratamento</label>
+                        <label for="q5c">C) As bactérias realizam a fotossíntese para as plantas</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5d" value="D">
-                        <label for="q5d">D) Proibição imediata independente das consequências sociais</label>
+                        <label for="q5d">D) As bactérias decompõem a matéria orgânica do solo</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q5" id="q5e" value="E">
-                        <label for="q5e">E) Investimento em pesquisa médica para tratamentos eficazes</label>
+                        <label for="q5e">E) As bactérias convertem amônia em nitrito</label>
                     </div>
                 </div>
             </div>
@@ -573,31 +574,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">6</div>
-                    <div class="lesson-tag">Aula 1 - Efeito Estufa</div>
+                    <div class="lesson-tag">Eutrofização</div>
                 </div>
                 <div class="question">
-                    Degelo do permafrost libera metano, criando ciclo de retroalimentação. Qual análise explica as implicações biogeoquímicas?
+                    O despejo de esgoto não tratado em rios e lagos pode causar eutrofização. Qual é a sequência correta de eventos nesse processo?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q6" id="q6a" value="A">
-                        <label for="q6a">A) Degelo libera gases que intensificam aquecimento, levando a mais degelo</label>
+                        <label for="q6a">A) Aumento de nutrientes → proliferação de algas → aumento de oxigênio → morte de peixes</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6b" value="B">
-                        <label for="q6b">B) Metano é rapidamente convertido em CO₂, reduzindo potencial de aquecimento</label>
+                        <label for="q6b">B) Aumento de nutrientes → proliferação de algas → consumo de oxigênio → morte de peixes</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6c" value="C">
-                        <label for="q6c">C) Vegetação que surge compensa completamente emissões de metano</label>
+                        <label for="q6c">C) Diminuição de nutrientes → morte de algas → aumento de oxigênio → proliferação de peixes</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6d" value="D">
-                        <label for="q6d">D) Albedo aumentado contrabalança efeito dos gases liberados</label>
+                        <label for="q6d">D) Aumento de temperatura → proliferação de algas → consumo de oxigênio → morte de peixes</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q6" id="q6e" value="E">
-                        <label for="q6e">E) Microrganismos consomem mais metano do que produzem</label>
+                        <label for="q6e">E) Diminuição de temperatura → morte de algas → aumento de oxigênio → proliferação de peixes</label>
                     </div>
                 </div>
             </div>
@@ -606,31 +607,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">7</div>
-                    <div class="lesson-tag">Aula 2 - Eventos Climáticos</div>
+                    <div class="lesson-tag">Fertilizantes</div>
                 </div>
                 <div class="question">
-                    El Niño causou inundações no Sul e seca no Nordeste. Qual explicação integra os mecanismos atmosféricos?
+                    Um agricultor precisa escolher entre fertilizantes orgânicos e inorgânicos para sua plantação. Qual é a principal vantagem dos fertilizantes orgânicos em relação aos inorgânicos?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q7" id="q7a" value="A">
-                        <label for="q7a">A) Altera padrão de ventos, modificando a posição da Zona de Convergência</label>
+                        <label for="q7a">A) Eles melhoram a estrutura do solo e liberam nutrientes gradualmente</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" id="q7b" value="B">
-                        <label for="q7b">B) Aumento da temperatura global é único fator responsável por El Niño</label>
+                        <label for="q7b">B) Eles possuem concentração mais alta de nutrientes</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" id="q7c" value="C">
-                        <label for="q7c">C) Afeta uniformemente todo território, diferenças são por fatores locais</label>
+                        <label for="q7c">C) Eles são mais baratos e fáceis de aplicar</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" id="q7d" value="D">
-                        <label for="q7d">D) Amazônia compensa completamente os efeitos do El Niño</label>
+                        <label for="q7d">D) Eles não alteram o pH do solo</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q7" id="q7e" value="E">
-                        <label for="q7e">E) É fenômeno exclusivamente oceânico, sem influência continental</label>
+                        <label for="q7e">E) Eles são mais eficientes no controle de pragas</label>
                     </div>
                 </div>
             </div>
@@ -639,31 +640,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">8</div>
-                    <div class="lesson-tag">Aula 3 - ERRD</div>
+                    <div class="lesson-tag">Maré Vermelha</div>
                 </div>
                 <div class="question">
-                    Áreas com mapeamento participativo, obras e simulações tiveram zero vítimas em deslizamentos. Qual lição principal?
+                    O fenômeno conhecido como "maré vermelha" é causado pela proliferação excessiva de certos tipos de algas. Qual é a principal consequência desse fenômeno?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q8" id="q8a" value="A">
-                        <label for="q8a">A) Combinação de medidas estruturais e não estruturais com engajamento é eficaz</label>
+                        <label for="q8a">A) Aumento da biodiversidade marinha</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" id="q8b" value="B">
-                        <label for="q8b">B) Obras de engenharia são sempre suficientes para proteção</label>
+                        <label for="q8b">B) Produção de toxinas que contaminam frutos do mar e podem intoxicar humanos</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" id="q8c" value="C">
-                        <label for="q8c">C) Simulações dispensam investimentos em obras ou mapeamento</label>
+                        <label for="q8c">C) Diminuição da temperatura da água do mar</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" id="q8d" value="D">
-                        <label for="q8d">D) Comunidades devem ser permanentemente removidas de áreas de risco</label>
+                        <label for="q8d">D) Aumento do oxigênio dissolvido na água</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q8" id="q8e" value="E">
-                        <label for="q8e">E) Mapeamento é suficiente para redução de riscos sem outras ações</label>
+                        <label for="q8e">E) Aceleração do ciclo do carbono nos oceanos</label>
                     </div>
                 </div>
             </div>
@@ -672,31 +673,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">9</div>
-                    <div class="lesson-tag">Aula 4 - Fontes Renováveis</div>
+                    <div class="lesson-tag">Pirâmides de Números</div>
                 </div>
                 <div class="question">
-                    Usina solar em caatinga reduziu plantas nativas mas aumentou lagartos. Qual abordagem equilibra energia e biodiversidade?
+                    Em uma determinada área, foram encontrados: 3 pés de buriti, 7 aves e 15 quatis. Qual tipo de pirâmide ecológica melhor representa essa situação?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q9" id="q9a" value="A">
-                        <label for="q9a">A) Planejamento espacial que evite espécies ameaçadas com restauração</label>
+                        <label for="q9a">A) Pirâmide de números invertida</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" id="q9b" value="B">
-                        <label for="q9b">B) Instalação apenas em áreas degradadas, independente de eficiência</label>
+                        <label for="q9b">B) Pirâmide de energia</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" id="q9c" value="C">
-                        <label for="q9c">C) Priorização absoluta da geração de energia renovável</label>
+                        <label for="q9c">C) Pirâmide de biomassa invertida</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" id="q9d" value="D">
-                        <label for="q9d">D) Concentração em telhados, eliminando implantação em áreas naturais</label>
+                        <label for="q9d">D) Pirâmide de números normal</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q9" id="q9e" value="E">
-                        <label for="q9e">E) Compensação com plantio de árvores em outras regiões</label>
+                        <label for="q9e">E) Pirâmide de biomassa normal</label>
                     </div>
                 </div>
             </div>
@@ -705,31 +706,31 @@
             <div class="question-container">
                 <div class="question-header">
                     <div class="question-number">10</div>
-                    <div class="lesson-tag">Aula 5 - Fontes Não Renováveis</div>
+                    <div class="lesson-tag">Ciclos Biogeoquímicos</div>
                 </div>
                 <div class="question">
-                    Mineração de lítio em salares gerou conflitos por água. Qual estratégia concilia interesses?
+                    Os ciclos biogeoquímicos são essenciais para a manutenção da vida na Terra. Qual é a principal função desses ciclos?
                 </div>
                 <div class="options">
                     <div class="option">
                         <input type="radio" name="q10" id="q10a" value="A">
-                        <label for="q10a">A) Tecnologias de extração com menor consumo hídrico e reciclagem</label>
+                        <label for="q10a">A) Garantir a reciclagem dos elementos químicos necessários aos seres vivos</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" id="q10b" value="B">
-                        <label for="q10b">B) Priorização absoluta da produção justificando sacrifícios locais</label>
+                        <label for="q10b">B) Produzir energia para todos os seres vivos</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" id="q10c" value="C">
-                        <label for="q10c">C) Proibição total até desenvolvimento de alternativas sem lítio</label>
+                        <label for="q10c">C) Controlar a temperatura do planeta</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" id="q10d" value="D">
-                        <label for="q10d">D) Transferência de comunidades para liberar áreas para mineração</label>
+                        <label for="q10d">D) Regular a quantidade de oxigênio na atmosfera</label>
                     </div>
                     <div class="option">
                         <input type="radio" name="q10" id="q10e" value="E">
-                        <label for="q10e">E) Compensação financeira sem alterar métodos de extração</label>
+                        <label for="q10e">E) Manter constante a população de decompositores</label>
                     </div>
                 </div>
             </div>
@@ -751,40 +752,22 @@
     <script>
         // Respostas corretas
         const correctAnswers = {
-            q1: "B",
+            q1: "A",
             q2: "B",
-            q3: "B",
-            q4: "A",
+            q3: "D",
+            q4: "B",
             q5: "A",
-            q6: "A",
+            q6: "B",
             q7: "A",
-            q8: "A",
+            q8: "B",
             q9: "A",
             q10: "A"
         };
         
-        // Lista de alunos
+        // Lista de alunos atualizada
         const students = [
-            { name: "ALEXANDRE BATISTA DOS SANTOS", number: "1", class: "1ºH" },
-            { name: "ANA LÍVIA BRAGA DOS SANTOS", number: "5", class: "1ºH" },
-            { name: "ARTHUR CASTRO SILVA", number: "7", class: "1ºH" },
-            { name: "DANIELLE OLIVEIRA DA SILVA NUNES", number: "11", class: "1ºH" },
-            { name: "ELOYSA ANDRADE OLIVEIRA SILVA", number: "14", class: "1极H" },
-            { name: "FELIPE MARCONDES SILVA", number: "18", class: "1ºH" },
-            { name: "GEOVANA FERREIRA DA SILVA", number: "19", class: "1ºH" },
-            { name: "GEOVANNA GABRIELA PIERRE SILVA", number: "20", class: "1ºH" },
-            { name: "GUILHERME YORE DA SILVA OLIVEIRA", number: "23", class: "1ºH" },
-            { name: "ISAAK ALVAREZ MARQUEZ CAETANO", number: "24", class: "1ºH" },
-            { name: "KAMILA NEVES BRITO", number: "30", class: "1ºH" },
-            { name: "KEMILLY VITORIA RODRIGUES MARIANO", number: "33", class: "1ºH" },
-            { name: "LAURA LUIZA DOS SANTOS ALMEIDA", number: "34", class: "1ºH" },
-            { name: "MARIA EDUARDA VENCESLAU DE SOUZA", number: "37", class: "1ºH" },
-            { name: "MATHEUS CAVALCANTE LISBOA", number: "38", class: "1ºH" },
-            { name: "MURILLO SOUZA RODRIGUES DOS SANTOS", number: "40", class: "1ºH" },
-            { name: "PEDRO HENRIQUE MAURICIO DA SILVA CHAGAS", number: "45", class: "1ºH" },
             { name: "RHUAN LIMA OLIVEIRA", number: "48", class: "1ºH" },
             { name: "THAINA FIDELIS XAVIER DA SILVA", number: "49", class: "1ºH" },
-            { name: "YUSSEF CARLITO BELENTANI DE SOUSA", number: "53", class: "1ºH" },
             { name: "DENIS CASTRO DURVALDO", number: "54", class: "1ºH" },
             { name: "ISAAC LEMOS SANTOS", number: "56", class: "1ºH" },
             { name: "EMILLY EDUARDA BONIFACIO DE AMORIM CORREA", number: "57", class: "1ºH" },
@@ -793,12 +776,24 @@
             { name: "MILENA CRISTINA LOPES DE CARVALHO", number: "61", class: "1ºH" },
             { name: "PYETRA GOMES MARTINS", number: "62", class: "1ºH" },
             { name: "MIRELLA BRITO DA SILVA", number: "63", class: "1ºH" },
-            { name: "CAROS EDUARDO MARTINS DA SILVA", number: "64", class: "1ºH" },
-            { name: "FLÁVIO GUSTAVO CUNHA DE SOUZA", number: "65", class: "1ºH" },
+            { name: "CARLOS EDUARDO MARTINS DA SILVA", number: "64", class: "1ºH" },
             { name: "STELLA MARTINS DA SILVA", number: "66", class: "1ºH" },
             { name: "DYESSICA MAYARA DOS SANTOS GOMES", number: "67", class: "1ºH" },
             { name: "LARISSA DE LOURDES DOS SANTOS", number: "68", class: "1ºH" },
-            { name: "DAVI AMERICO FEITOSA", number: "69", class: "1ºH" }
+            { name: "DAVI AMERICO FEITOSA", number: "69", class: "1ºH" },
+            { name: "GUSTAVO RODRIGUES DE SOUZA", number: "70", class: "1ºH" },
+            { name: "PAULO HENRIQUE SOUZA MARTELO", number: "71", class: "1ºH" },
+            { name: "NAYARA BARROS DE MORAIS", number: "72", class: "1ºH" },
+            { name: "VITÓRIA SANTOS TEIXEIRA", number: "73", class: "1ºH" },
+            { name: "BRUNA VITORIA DA MOTA OLIVEIRA", number: "74", class: "1ºH" },
+            { name: "JOÃO PAULO RODRIGUES DE SOUZA FILHO", number: "75", class: "1ºH" },
+            { name: "MARIA EDUARDA DE OLIVEIRA RODRIGUES", number: "76", class: "1ºH" },
+            { name: "LUIZ HENRIQUE JESUS DOS SANTOS FABRICIO", number: "77", class: "1ºH" },
+            { name: "EDUARDO CARRASCOSA PINTOR", number: "78", class: "1ºH" },
+            { name: "GUILHERME DANIEL VELOSO DOS SANTOS", number: "79", class: "1ºH" },
+            { name: "JOAO GABRIEL AMORIM TOBIAS", number: "80", class: "1ºH" },
+            { name: "RIAN SANTOS MACHADO", number: "81", class: "1ºH" },
+            { name: "JULIA ARAUJO DE LIMA", number: "82", class: "1ºH" }
         ];
         
         // Preencher dropdown com nomes dos alunos
@@ -834,9 +829,9 @@
             });
         });
         
-        // Função para enviar respostas para o Google Sheets (VERSÃO FINAL)
+        // Função para enviar respostas para o Google Sheets
         async function enviarParaSheets(dados) {
-            // ATUALIZE COM SEU URL DO WEB APP
+            // URL do Web App do Google Apps Script
             const webAppUrl = 'https://script.google.com/macros/s/AKfycbwACGN1BvQS1eutICzx8DN3doWJHkJ1HHzZWBBFXZIhc9dilrOyFOPTtrY1LUYb8CQ/exec';
             
             try {
